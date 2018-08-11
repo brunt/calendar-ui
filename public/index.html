@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/fullcalendar.min.css"/>
     <script src="js/moment.min.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/fullcalendar.min.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendar</title>
     <script>
         $(document).ready(() => {
@@ -29,7 +28,7 @@
                 for (let i = start.day(5)._d; i <= end._d; i.setDate(i.getDate() + 7)){
                     if((moment(i).week()) % 2 === 0){
                         events.push({
-                            title: 'Pay Day',
+                            title: 'Event 1',
                             start: i.valueOf(),
                             editable: false,
                             color: '#257e4a',
@@ -45,7 +44,7 @@
                  for (let i = start._d; i <= end._d; i.setDate(i.getDate() + 1)) {
                     if(moment(i).date() === 1){
                          events.push({
-                             title: "Rent Due",
+                             title: "Event 2",
                              start: i.valueOf(),
                              editable: false,
                              color: '#30a',
@@ -60,7 +59,7 @@
                 for (let i = start._d; i <= end._d; i.setDate(i.getDate() + 1)) {
                     if(moment(i).date() === 23){
                         events.push({
-                            title: "Car Payment Due",
+                            title: "Event 3",
                             start: i.valueOf(),
                             editable: false,
                             color: '#88C',
@@ -71,10 +70,17 @@
                 callback(events)
             });
         });
+
         </script>
     <style>
-        body {margin:5vh 10vw;padding:0;font-family:"Lucida Grande",Helvetica,Arial,Verdana,sans-serif;font-size:14px;}
-        #calendar {max-width: 90vw;margin: 0 auto;}
+        @media  (min-width: 768px) {
+            body {margin:5vh 5vw;padding:0;font-family:"Lucida Grande",Helvetica,Arial,Verdana,sans-serif;font-size:14px;}
+            #calendar {max-width: 90vw; height: 80vh; margin: 0 auto;}
+        }
+        @media (max-width: 767px) {
+            body {padding:0;font-family:"Lucida Grande",Helvetica,Arial,Verdana,sans-serif;font-size:8px;}
+            #calendar {max-width: 95vw; margin: 0 auto; overflow: hidden;}
+        }
     </style>
 </head>
 <body>

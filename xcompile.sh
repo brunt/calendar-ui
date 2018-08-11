@@ -1,0 +1,1 @@
+docker run --rm -v ~/calendar-ui:/home/cross/project ubruntu/rust-raspberry:1.28.0
